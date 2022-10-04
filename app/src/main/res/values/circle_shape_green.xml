@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="GreenCircle" parent="">
+        <item name="cornerRadius">24dp</item>
+        <item name="color">#188F1D</item>
+    </style>
+
+</resources>
