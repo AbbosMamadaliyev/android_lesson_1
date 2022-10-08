@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Start game"
+            android:id="@+id/start_game"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"/>
+        <Button
+            android:text="Results"
+            android:id="@+id/result_game"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"/>
+        <Button
+            android:text="Exit game"
+            android:id="@+id/exit_game"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>
