@@ -4,43 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/start_back"
     tools:context=".ResultActivity">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <TextView
-            android:text="Winner!!!"
-            android:textSize="32sp"
-            android:textColor="@color/black"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_black"
+            android:text="You are Winner!!!"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
+
         <TextView
-            tools:text="Your step: 0"
-            android:textSize="28sp"
             android:id="@+id/result_step"
-            android:textColor="@color/black"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            tools:text="Your time: 0"
-            android:id="@+id/result_time"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/white"
             android:textSize="28sp"
-            android:textColor="@color/black"
+            tools:text="Your step: 0" />
+
+        <TextView
+            android:id="@+id/result_time"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            tools:text="Your time: 0" />
 
         <Button
             android:id="@+id/result_home_btn"
-            android:layout_margin="24dp"
             android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:layout_margin="24dp"
+            android:background="@drawable/btn_back"
+            android:fontFamily="@font/poppins_black"
             android:text="home"
-            android:textSize="16sp"
-            android:layout_height="56dp"/>
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

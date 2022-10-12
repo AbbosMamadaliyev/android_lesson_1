@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class ResultActivity extends AppCompatActivity {
 
     private Button backToHomeBtn;

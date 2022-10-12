@@ -2,9 +2,11 @@ package com.example.android_lesson_1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 15; i++) {
             Button button = mButtons[i / 4][i % 4];
             button.setText(String.valueOf(numbers.get(i)));
+            button.setTypeface(ResourcesCompat.getFont(this, R.font.poppins_regular));
 
             button.setBackgroundResource(R.drawable.fill_button);
         }
@@ -115,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         30 31 32 33;      */
         for (int i = 0; i < 16; i++) {
             mButtons[i / 4][i % 4] = (Button) buttonGroup.getChildAt(i);
+
         }
     }
 
@@ -126,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             numbers.add(i);
         }
 
-        Collections.shuffle(numbers);
+//        Collections.shuffle(numbers);
     }
 
     public void buttonClick(View view) {
@@ -165,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void stepCount() {
         stepView.setText(String.valueOf(step));
+        stepView.setTypeface(ResourcesCompat.getFont(this, R.font.poppins_regular));
     }
 
     private void timeCount(int time) {
