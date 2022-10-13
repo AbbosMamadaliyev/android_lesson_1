@@ -45,9 +45,15 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
                 break;
             }
             case R.id.result_game:
+            {
+                Intent intent = new Intent(StartActivity.this, ShowResultsActivity.class);
+                startActivity(intent);
                 break;
-            case R.id.exit_game:
+            }
+            case R.id.exit_game:{
+                onBackPressed();
                 break;
+            }
         }
 
     }

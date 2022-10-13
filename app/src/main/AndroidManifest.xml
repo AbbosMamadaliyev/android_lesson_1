@@ -4,6 +4,7 @@
     package="com.example.android_lesson_1">
 
     <application
+        android:name=".app.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,9 +15,13 @@
         android:theme="@style/Theme.Android_lesson_1"
         tools:targetApi="31">
         <activity
-            android:name=".ResultActivity"
-            android:label="@string/result_page"
+            android:name=".ShowResultsActivity"
+            android:label="@string/results"
             android:exported="false" />
+        <activity
+            android:name=".ResultActivity"
+            android:exported="false"
+            android:label="@string/result_page" />
         <activity
             android:name=".StartActivity"
             android:exported="true">

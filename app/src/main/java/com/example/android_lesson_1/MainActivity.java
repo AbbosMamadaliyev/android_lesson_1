@@ -7,6 +7,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView timeView;
     private TextView stepView;
     private Button[][] mButtons = new Button[4][4];
+    private MediaPlayer mMediaPlayer;
     private Button finishBtn;
     private Button restartBtn;
     private RelativeLayout buttonGroup;
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.puzzle15_example);
+
+        mMediaPlayer = MediaPlayer.create(this, R.raw.swipe);
 
         loadNumbers();
 
@@ -158,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
 
             stepCount();
 
+            mMediaPlayer.start();
+
             if (emptyI == 3 && emptyJ == 3) {
                 checkToWin();
             }
@@ -192,6 +198,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (isWin) {
+            timer.cancel();
+
             showAlertDialog();
         }
     }
@@ -211,7 +219,6 @@ public class MainActivity extends AppCompatActivity {
 
                 finish();
 
-                timer.cancel();
 
             }
         });
