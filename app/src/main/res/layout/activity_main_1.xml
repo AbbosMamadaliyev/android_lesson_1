@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#8245DA"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".gamePazzle.MainActivity">
 
     <Button
         android:layout_width="match_parent"

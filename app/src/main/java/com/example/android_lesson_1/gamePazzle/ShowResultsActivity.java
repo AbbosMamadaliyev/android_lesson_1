@@ -1,18 +1,16 @@
-package com.example.android_lesson_1;
+package com.example.android_lesson_1.gamePazzle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android_lesson_1.cache.MemoryHelper;
-import com.example.android_lesson_1.models.UserData;
+import com.example.android_lesson_1.R;
+import com.example.android_lesson_1.gamePazzle.cache.MemoryHelper;
+import com.example.android_lesson_1.gamePazzle.models.UserData;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
 
 public class ShowResultsActivity extends AppCompatActivity {
     private LinearLayout rootGroup;
@@ -24,10 +22,15 @@ public class ShowResultsActivity extends AppCompatActivity {
 
         rootGroup = findViewById(R.id.result_group);
 
-        UserData userData = MemoryHelper.getmHelper().getData();
+        ArrayList<UserData> list = MemoryHelper.getmHelper().getResultList();
 
 
-        for (int i = 0; i < 18; i++) {
+        for(UserData data: list){
+
+        }
+
+
+        for (int i = 0; i < list.toArray().length; i++) {
             TextView name = new TextView(this);
             TextView step = new TextView(this);
             TextView time = new TextView(this);
@@ -40,9 +43,10 @@ public class ShowResultsActivity extends AppCompatActivity {
 
             layout.setOrientation(LinearLayout.VERTICAL);
 
-            name.setText((i+1) +") name: "+userData.getName());
-            step.setText("     step: " + userData.getStep());
-            time.setText("     time: " + userData.getTime());
+            name.setText((i+1) +") name: "+list.get(i).getName());
+            step.setText("     step: " + list.get(i).getStep());
+            time.setText("     time: " + timeFormat(list.get(i).getTime()));
+            name.setTextSize(18);
             layout.addView(name);
             layout.addView(step);
             layout.addView(time);
@@ -52,5 +56,13 @@ public class ShowResultsActivity extends AppCompatActivity {
             layout.setLayoutParams(params);
             rootGroup.addView(layout);
         }
+    }
+
+    private String timeFormat(int time) {
+        int hour = time / 3600;
+        int minute = time % 3600 / 60;
+        int second = time % 60;
+
+        return  String.format("%02d:%02d:%02d", hour, minute, second);
     }
 }

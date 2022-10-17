@@ -2,7 +2,7 @@ package com.example.android_lesson_1.app;
 
 import android.app.Application;
 
-import com.example.android_lesson_1.cache.MemoryHelper;
+import com.example.android_lesson_1.gamePazzle.cache.MemoryHelper;
 
 public class MyApp extends Application {
 

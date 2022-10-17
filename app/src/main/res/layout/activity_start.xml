@@ -5,7 +5,7 @@
     android:background="@drawable/start_back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".gamePazzle.StartActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

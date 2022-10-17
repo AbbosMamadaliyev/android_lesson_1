@@ -1,4 +1,4 @@
-package com.example.android_lesson_1.models;
+package com.example.android_lesson_1.gamePazzle.models;
 
 public class UserData {
     private String name;

@@ -1,23 +1,26 @@
-package com.example.android_lesson_1;
+package com.example.android_lesson_1.gamePazzle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android_lesson_1.R;
+
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Integer> numbers = new ArrayList<>();
     Timer timer;
+    private Toolbar mToolbar;
     private TextView timeView;
+    ImageButton volumeBtn;
     private TextView stepView;
     private Button[][] mButtons = new Button[4][4];
     private MediaPlayer mMediaPlayer;
@@ -72,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
                 restartGame();
             }
         });
+
+
+        volumeBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                }
+        );
     }
 
     private void createTimer() {
@@ -95,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setDataToView() {
         stepCount();
-        System.out.println("text: "+mButtons[3][3].getText());
+        System.out.println("text: " + mButtons[3][3].getText());
 
         for (int i = 0; i < 15; i++) {
             Button button = mButtons[i / 4][i % 4];
@@ -114,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         timeView = findViewById(R.id.time_view);
         stepView = findViewById(R.id.step_view);
 
+        volumeBtn = findViewById(R.id.volumeBtn);
         buttonGroup = findViewById(R.id.btn_group);
         /*
         00 01 02 03;

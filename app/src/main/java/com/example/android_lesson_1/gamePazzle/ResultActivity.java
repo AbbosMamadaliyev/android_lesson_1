@@ -1,4 +1,4 @@
-package com.example.android_lesson_1;
+package com.example.android_lesson_1.gamePazzle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.android_lesson_1.cache.MemoryHelper;
-import com.example.android_lesson_1.models.UserData;
-
-import java.util.Objects;
+import com.example.android_lesson_1.R;
+import com.example.android_lesson_1.gamePazzle.cache.MemoryHelper;
+import com.example.android_lesson_1.gamePazzle.models.UserData;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -36,6 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         step = intent.getIntExtra("step", 0);
         time = intent.getIntExtra("time", 0);
 
+        System.out.println("timem: " + time);
 
         backToHomeBtn = findViewById(R.id.result_home_btn);
         saveDataBtn = findViewById(R.id.save_result);
@@ -45,19 +45,28 @@ public class ResultActivity extends AppCompatActivity {
 
 
         resStep.setText(String.format("Your step: %d", step));
-        resTime.setText(String.format("Your time: %d", time));
+        resTime.setText("Your time: " + timeFormat(time));
 
         setClickListener(step, time);
     }
 
-    private void setClickListener( int step, int time) {
+
+    private String timeFormat(int time) {
+        int hour = time / 3600;
+        int minute = time % 3600 / 60;
+        int second = time % 60;
+
+        return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
+
+    private void setClickListener(int step, int time) {
 
         /// navigate to home
         backToHomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserData usd = MemoryHelper.getmHelper().getData();
-                System.out.println("data1: "+usd);
+//                UserData usd = MemoryHelper.getmHelper().getData();
+//                System.out.println("data1: "+usd);
 
                 Intent intent = new Intent(ResultActivity.this, StartActivity.class);
                 startActivity(intent);
@@ -72,6 +81,7 @@ public class ResultActivity extends AppCompatActivity {
 //                Intent intent = new Intent(ResultActivity.this, StartActivity.class);
 //                startActivity(intent);
 //                finish();
+
                 name = mEditText.getText().toString();
 
 
@@ -84,8 +94,11 @@ public class ResultActivity extends AppCompatActivity {
                         )
                 );
 
-                UserData usd = MemoryHelper.getmHelper().getData();
-                System.out.println("data: "+usd);
+                finish();
+
+
+//                UserData usd = MemoryHelper.getmHelper().getData();
+//                System.out.println("data: "+usd);
             }
         });
     }
